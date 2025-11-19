@@ -1,0 +1,346 @@
+/* ===========================
+   STYLES GLOBAUX
+=========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ===========================
+   CONTAINERS
+=========================== */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-logo img {
+  width: 60px;
+  height: auto;
+}
+
+.header-title h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.header-title p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #0077ff;
+}
+
+.btn-nav {
+  padding: 8px 14px;
+  border: 2px solid #0077ff;
+  border-radius: 6px;
+  color: #0077ff !important;
+  font-weight: 600;
+}
+
+.btn-nav:hover {
+  background: #0077ff;
+  color: white !important;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero {
+  background: linear-gradient(135deg, #0077ff, #004fac);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero-text {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary,
+.btn-outline {
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: white;
+  color: #0077ff;
+}
+
+.btn-primary:hover {
+  background: #e5e5e5;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #0077ff;
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+.section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.section-sub {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* ===========================
+   GRID CARDS
+=========================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===========================
+   REALISATIONS (CARROUSEL)
+=========================== */
+
+.swiper {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ===========================
+   AVIS — CORRECTION ICI
+=========================== */
+
+.avis-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 20px 0 30px;
+  flex-wrap: wrap;
+}
+
+.avis-buttons a {
+  text-align: center;
+}
+
+/* ===========================
+   MAP
+=========================== */
+
+.map iframe {
+  border: none;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+/* ===========================
+   CONTACT FORM
+=========================== */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 550px;
+  margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background: #0077ff;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #005fcc;
+}
+
+.contact-info {
+  margin-top: 20px;
+  color: #444;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+  background: #111;
+  color: #bbb;
+  padding: 35px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+/* ===========================
+   RESPONSIVE MOBILE
+=========================== */
+
+@media (max-width: 900px) {
+  .nav {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: white;
+    width: 70%;
+    padding: 20px;
+    flex-direction: column;
+    gap: 18px;
+    display: none;
+    box-shadow: -2px 4px 15px rgba(0,0,0,0.15);
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  .hero-content h2 {
+    font-size: 26px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+}
+
