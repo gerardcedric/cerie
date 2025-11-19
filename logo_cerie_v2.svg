@@ -1,7 +1,0 @@
-<?xml version="1.0" ?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
-	<path d="M200,250 A150,150 0 1,1 200,150 L200,180 A120,120 0 1,0 200,320 Z" fill="white" stroke="black" stroke-width="8"/>
-	<path d="M240,180 L300,240 L270,240 L320,330 L250,260 L280,260 Z" fill="#FFD300" stroke="black" stroke-width="6"/>
-	<text x="380" y="280" fill="#0077FF" stroke="black" stroke-width="6" font-size="180" font-family="Arial Black">ERIE</text>
-	<text x="380" y="350" fill="#003366" font-size="60" font-family="Arial">ÉLECTRICITÉ GÉNÉRALE</text>
-</svg>
