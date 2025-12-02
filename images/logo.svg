@@ -1,5 +1,0 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>
-  <rect width='200' height='200' rx='20' fill='#0077ff'/>
-  <path d='M80 140 L110 60 L140 140' stroke='#ffcc00' stroke-width='10' fill='none'/>
-  <text x='100' y='180' font-size='24' text-anchor='middle' fill='white'>CERIE</text>
-</svg>
