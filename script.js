@@ -1,162 +1,129 @@
-// =========================
-// SCRIPT GLOBAL – CERIE ÉLECTRICITÉ
-// =========================
+/* ============================================================
+   SCRIPT.JS OPTIMISÉ – CERIE ÉLECTRICITÉ
+   - Navigation mobile (hamburger)
+   - Initialisation Swiper
+   - Initialisation GLightbox
+   - Gestion cookies RGPD
+   ============================================================ */
 
-document.addEventListener("DOMContentLoaded", function () {
-  const nav = document.getElementById("nav");
+/* ------------------------------
+   MENU MOBILE
+------------------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+
   const navToggle = document.getElementById("navToggle");
-  
-  if (nav && navToggle) {
+  const nav = document.getElementById("nav");
+
+  if (navToggle && nav) {
     navToggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-      navToggle.classList.toggle("open"); // <-- pour animer les barres
-  });
-  // Fermer le menu quand on clique sur un lien (sur mobile)
-  const navLinks = nav.querySelectorAll("a");
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (nav.classList.contains("active")) {
-        nav.classList.remove("active");
-        navToggle.classList.remove("open"); // <-- on referme aussi l’icône
-      }
-    });
-  });
-}
-
-  // =========================
-  // SWIPER – CARROUSEL RÉALISATIONS
-  // =========================
-
-  const slider = document.querySelector(".realisations-swiper");
-
-  if (slider && typeof Swiper !== "undefined") {
-    new Swiper(".realisations-swiper", {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 20,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        768: { slidesPerView: 2 },
-        1100: { slidesPerView: 3 },
-      },
+      nav.classList.toggle("show");
+      navToggle.classList.toggle("active");
     });
   }
+});
 
-  // =========================
-  // GLIGHTBOX – ZOOM IMAGES
-  // =========================
+/* ------------------------------
+   INITIALISATION SWIPER
+------------------------------ */
+document.addEventListener("DOMContentLoaded", () => {
 
-  if (typeof GLightbox !== "undefined") {
+  if (document.querySelector(".realisations-swiper")) {
+    new Swiper(".realisations-swiper", {
+      loop: true,
+      speed: 600,
+      slidesPerView: 1,
+      spaceBetween: 20,
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+
+      lazy: true,
+
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        820: { slidesPerView: 2 },
+        1100: { slidesPerView: 3 }
+      }
+    });
+  }
+});
+
+/* ------------------------------
+   INITIALISATION GLIGHTBOX
+------------------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.querySelector(".glightbox")) {
     GLightbox({
       selector: ".glightbox",
       touchNavigation: true,
       loop: true,
+      zoomable: false
+    });
+  }
+});
+
+/* ------------------------------
+   BANNIÈRE COOKIES RGPD
+------------------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("cookie-banner");
+  const btnAccept = document.getElementById("cookie-accept");
+  const btnRefuse = document.getElementById("cookie-refuse");
+  const btnSettings = document.getElementById("cookie-settings");
+
+  // Vérification consentement
+  const consent = localStorage.getItem("cerie_cookie_consent");
+
+  // Afficher bannière si pas encore choisie
+  if (!consent) {
+    banner.style.display = "block";
+  }
+
+  // Acceptation cookies
+  if (btnAccept) {
+    btnAccept.addEventListener("click", () => {
+      localStorage.setItem("cerie_cookie_consent", "accepted");
+      banner.style.display = "none";
+      enableAnalytics();
     });
   }
 
+  // Refus cookies
+  if (btnRefuse) {
+    btnRefuse.addEventListener("click", () => {
+      localStorage.setItem("cerie_cookie_consent", "refused");
+      banner.style.display = "none";
+    });
+  }
+
+  // Bouton footer "Gérer les cookies"
+  if (btnSettings) {
+    btnSettings.addEventListener("click", () => {
+      banner.style.display = "block";
+    });
+  }
+
+  // Si déjà accepté → activer Google Analytics
+  if (consent === "accepted") {
+    enableAnalytics();
+  }
 });
-// ===== Gestion des cookies et de Google Analytics =====
-(function () {
-  const GA_ID = 'G-YH693X2E9D';
-  let analyticsLoaded = false;
 
-  function loadAnalytics() {
-    if (analyticsLoaded) return;
-    analyticsLoaded = true;
-
-    // Prépare dataLayer + gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = window.gtag || gtag;
-
-    // Ajoute le script GA4 dynamiquement
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(script);
-
-    // Config GA4 (avec anonymisation IP)
-    gtag('js', new Date());
-    gtag('config', GA_ID, { 'anonymize_ip': true });
+/* ------------------------------
+   ACTIVATION Google Analytics UNIQUEMENT SI CONSENTEMENT
+------------------------------ */
+function enableAnalytics() {
+  if (window.gtag) {
+    gtag("consent", "update", {
+      ad_storage: "denied",
+      analytics_storage: "granted"
+    });
   }
-
-  function setConsent(value) {
-    try {
-      localStorage.setItem('cerie_analytics_consent', value);
-    } catch (e) {
-      // fallback cookie si localStorage impossible
-      document.cookie = 'cerie_analytics_consent=' + value + ';path=/;max-age=' + 60 * 60 * 24 * 180;
-    }
-  }
-
-  function getConsent() {
-    try {
-      return localStorage.getItem('cerie_analytics_consent');
-    } catch (e) {
-      const match = document.cookie.match(/(?:^|; )cerie_analytics_consent=([^;]+)/);
-      return match ? match[1] : null;
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const banner = document.getElementById('cookie-banner');
-    if (!banner) return; // sécurité si une autre page n'a pas le bandeau
-
-    const btnAccept = document.getElementById('cookie-accept');
-    const btnRefuse = document.getElementById('cookie-refuse');
-    const settingsBtn = document.getElementById('cookie-settings');
-
-    function hideBanner() {
-      banner.style.display = 'none';
-    }
-
-    function showBanner() {
-      banner.style.display = 'block';
-    }
-
-    const current = getConsent();
-
-    if (current === 'accepted') {
-      loadAnalytics();
-      hideBanner();
-    } else if (current === 'refused') {
-      hideBanner();
-    } else {
-      // aucun choix encore => on affiche le bandeau
-      showBanner();
-    }
-
-    if (btnAccept) {
-      btnAccept.addEventListener('click', function () {
-        setConsent('accepted');
-        loadAnalytics();
-        hideBanner();
-      });
-    }
-
-    if (btnRefuse) {
-      btnRefuse.addEventListener('click', function () {
-        setConsent('refused');
-        hideBanner();
-      });
-    }
-
-    if (settingsBtn) {
-      settingsBtn.addEventListener('click', function () {
-        showBanner();
-      });
-    }
-  });
-})();
-
-
-
-
-
+}
