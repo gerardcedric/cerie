@@ -465,5 +465,58 @@ body {
   height: 32px;
   filter: invert(100%) brightness(100%);
 }
+/* Centrage des titres principaux */
+.section h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* Centrage des sous-titres */
+.section .section-sub,
+.section h3 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Correction pour la section À propos (beaucoup de cards) */
+#apropos h2 {
+  text-align: center;
+}
+
+#apropos .section-sub {
+  text-align: center;
+}
+
+/* Centrage du titre Contact */
+#contact h2 {
+  text-align: center;
+}
+
+/* Centrage du titre Avis */
+#avis h2 {
+  text-align: center;
+}
+
+/* Centrage du titre Réalisations */
+#realisations h2 {
+  text-align: center;
+}
+
+/* Centrage du titre Zone d’intervention */
+#zone h2 {
+  text-align: center;
+}
+
+/* Centrage du titre FAQ */
+#faq h2 {
+  text-align: center;
+}
+
+/* Centrage Mentions légales */
+#mentions-legales h2 {
+  text-align: center;
+}
 
 
