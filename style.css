@@ -602,5 +602,10 @@ body {
     transform: translateY(0);
   }
 }
+/* Centrer le bouton Envoyer dans le formulaire de contact */
+#contact .contact-form button[type="submit"] {
+  display: block;
+  margin: 16px auto 0;  /* auto à gauche/droite = centré */
+}
 
 
