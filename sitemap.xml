@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://gerardcedric.github.io/cerie/</loc></url>
-  <url><loc>https://gerardcedric.github.io/cerie/VMC-ventilation.html</loc></url>
-  <url><loc>https://gerardcedric.github.io/cerie/electricien-val-europe.html</loc></url>
-  <url><loc>https://gerardcedric.github.io/cerie/borne-recharge-irve.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://gerardcedric.github.io/cerie/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Page VMC / ventilation -->
+  <url>
+    <loc>https://gerardcedric.github.io/cerie/VMC-ventilation.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Page Électricien Val d'Europe -->
+  <url>
+    <loc>https://gerardcedric.github.io/cerie/electricien-val-europe.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Page Borne de recharge IRVE -->
+  <url>
+    <loc>https://gerardcedric.github.io/cerie/borne-recharge-irve.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Page Guides & articles -->
+  <url>
+    <loc>https://gerardcedric.github.io/cerie/guides_%26_articles.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
