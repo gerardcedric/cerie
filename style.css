@@ -648,9 +648,7 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
-  background: #050816;
-
-/* adapte si ta couleur est différente */
+  background: #050816;      /* adapte si ta couleur est différente */
   padding: 12px 18px;
   border-radius: 8px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
@@ -712,5 +710,6 @@ body {
 .nav-toggle.is-open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
 
 
