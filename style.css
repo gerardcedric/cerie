@@ -636,5 +636,81 @@ body {
   gap: 14px;
   flex-wrap: wrap;
 }
+/* ===== MENU MOBILE AVEC 3 TRAITS SUR TOUTES LES TAILLES ===== */
+
+/* On positionne le header pour ancrer le menu déroulant */
+.header-flex {
+  position: relative;
+}
+
+/* Menu caché par défaut, il apparaîtra sous le header */
+.nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #050816;
+
+/* adapte si ta couleur est différente */
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+}
+
+/* Les liens du menu en bloc, comme sur téléphone */
+.nav a {
+  display: block;
+  padding: 6px 0;
+}
+
+/* Classe que ton JS ajoute (open ou nav-open) → on affiche le menu */
+.nav.open,
+.nav.nav-open {
+  display: flex;
+}
+
+/* Bouton 3 traits (hamburger) toujours visible */
+.nav-toggle {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Les 3 barres */
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Optionnel : animation en "X" quand le menu est ouvert
+   (si ton JS ajoute une classe .open ou .is-open au bouton) */
+.nav-toggle.open span:nth-child(1),
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2),
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3),
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
 
