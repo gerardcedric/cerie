@@ -127,3 +127,28 @@ function enableAnalytics() {
     });
   }
 }
+document.addEventListener('DOMContentLoaded', function () {
+  const nav = document.getElementById('nav');
+  const navToggle = document.getElementById('navToggle');
+
+  if (!nav || !navToggle) return;
+
+  // Clic sur le bouton burger
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    navToggle.classList.toggle('is-open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+});
+
