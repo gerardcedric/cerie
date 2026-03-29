@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Page d'accueil -->
   <url>
-    <loc>https://gerardcedric.github.io/cerie/</loc>
+    <loc>https://www.cerie-electricite.fr/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- Page VMC / ventilation -->
   <url>
-    <loc>https://gerardcedric.github.io/cerie/VMC-ventilation.html</loc>
+    <loc>https://www.cerie-electricite.fr/VMC-ventilation.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
