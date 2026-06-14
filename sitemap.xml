@@ -35,6 +35,13 @@
     <changefreq>monthly</changefreq>
   </url>
   
+  <!-- Page electricien Lagny-sur-Marne -->
+  <url>
+    <loc>https://www.cerie-electricite.fr/electricien-lagny-sur-marne.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
   <url>
     <loc>https://www.cerie-electricite.fr/controle-acces-automatismes-interphones.html</loc>
     <priority>0.8</priority>
