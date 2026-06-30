@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gerardcedric.github.io/cerie/sitemap.xml
+Sitemap: https://www.cerie-electricite.fr/sitemap.xml
